@@ -3,15 +3,17 @@
     position: relative;
     background-color: #545454;
     color: white;
-    padding: 25px;
-    margin: 0px 0px 10px 0px;
+    padding: 35px;
+    width: 100%;
+
 }
 
 #bottom {
     position: relative;
     background-color: #6B6B6B;
-    padding: 5px;
-    margin: 10px 0px 0px 0px;
+    bottom: 0;
+    width: 80%;
+    padding: 50px;
 }
 
 #left {
@@ -30,7 +32,7 @@
 
 .center_content {
     position: relative;
-    background-color: #dddddd;
+    background-color: white;
     padding: 5px;
 }
 
@@ -47,15 +49,50 @@
 }
 
 #top a:link, #top a:visited {
-  color: white;
-  font-weight : bold;
-  text-decoration: none;
+    color: white;
+    font-weight : bold;
+    text-decoration: none;
 }
 
 #top a:link:hover, #top a:visited:hover  {
-  color: black;
-  font-weight : bold;
-  text-decoration : underline;
+    color: black;
+    font-weight : bold;
+    text-decoration : underline;
 }
 
+.menu{
+    position: absolute;
+    left: 75%;
+    top: 20%;
+
+}
+
+.imagem1{
+    position: absolute;
+    left: 50%;
+    top: 350%;
+}
+
+.botao{
+    position: absolute;
+    right: 160%;
+    top: 80%;
+    
+}
+
+.logos{
+    position: absolute;
+    left: 90%;
+    top: 25%;
+}
+
+.carrinho{
+    position: absolute;
+    left: 80%;
+    top: 20%;
+}
+
+#butao{
+    border-radius: 30px;
+}
 

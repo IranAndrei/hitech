@@ -6,23 +6,31 @@
                 xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="content">
+            <div style="position: absolute; top: 55px; right: 40%" >
         <h:form>
-            <h3>Cadastre-se já</h3>
+            <h1>CADASTRE-SE JÁ</h1>
             <br/>
             Nome completo: <p:inputText/>
             <br/>
+            <br/>
             Email: <p:inputText/>
+            <br/>
             <br/>
             Crie uma senha: <p:inputText/>
             <br/>
-            Confirme sua senha: <p:inputText/>
+            <br/>
+            Confirme sua senha:<p:inputText/>
+            <br/>
             <br/>
             CPF: <p:inputMask mask="999.999.999-99" />
             <br/>
+            <br/>
             Endereço: <p:inputText/>
+            <br/>
             <br/>
             <p:commandButton value="Salvar informações" />
         </h:form>
+            </div>
     </ui:define>
 
 </ui:composition>

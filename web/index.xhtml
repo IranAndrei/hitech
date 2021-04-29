@@ -1,10 +1,26 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                template="./base.xhtml">
+                template="./base.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <ui:define name="content">
-        content
+        <h:form>
+            
+            <div class="imagem1">
+                <p:graphicImage name="imagens/imgEntrada.png" style="height: 450px; width: 700px" />             
+            </div>
+            
+            <div class="p-text-bold" style="position: absolute;top: 330px;left: 15%; font-size: 30px">
+                O melhor E-Commerce <br/>
+                de tecnologia do Brasil
+            </div>
+            
+            <p:commandButton type="button" class="botao" value="Comprar" styleClass="rounded-button" style="position: absolute;top: 420px;left: 21%; width: 120px; height: 50px;"/>
+                        
+            
+        </h:form>
     </ui:define>
 
 </ui:composition>

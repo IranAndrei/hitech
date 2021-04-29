@@ -6,17 +6,24 @@
                 xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="content">
+        <div style="position: absolute; right: 40%; top: 900% " >
         <h:form>
-            <h3>Login do Admin</h3>
+            
+            <h4>LOGIN DO ADMIN</h4>
+            <br/>
             <br/>
            Nome:<p:inputText/>
            <br/>
+           <br/>
            Senha: <p:inputText/>
+           <br/>
            <br/>
            Número do Admin: <p:inputText/>
            <br/>
-           <p:commandButton value="Entrar"/>
+           <br/>
+           <p:commandButton id="butao" value="Entrar"/>
         </h:form>
+        </div>
     </ui:define>
 
 </ui:composition>
