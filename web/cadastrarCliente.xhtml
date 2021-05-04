@@ -10,25 +10,28 @@
         <h:form>
             <h1>CADASTRE-SE JÁ</h1>
             <br/>
-            Nome completo: <p:inputText/>
+            Nome completo: <p:inputText value="#{usuarioB.nome}"/>
             <br/>
             <br/>
-            Email: <p:inputText/>
+            Email: <p:inputText value="#{usuarioB.email}"/>
             <br/>
             <br/>
-            Crie uma senha: <p:inputText/>
+            Crie uma senha: <p:inputText value="#{usuarioB.senha}"/>
             <br/>
             <br/>
             Confirme sua senha:<p:inputText/>
             <br/>
             <br/>
-            CPF: <p:inputMask mask="999.999.999-99" />
+            CPF: <p:inputMask mask="999.999.999-99" value="#{usuarioB.cpf}" />
             <br/>
             <br/>
-            CEP: <p:inputText/>
+            CEP: <p:inputMask mask="99999-999" value="#{usuarioB.cep}"/>
             <br/>
             <br/>
-            <p:commandButton value="Salvar informações" />
+            Administrador: <p:inputText value="#{usuarioB.administrador}"/>
+            <br/>
+            <br/>
+            <p:commandButton value="Salvar informações" action="#{usuarioB.salvarUsuario()}" />
         </h:form>
             </div>
     </ui:define>
