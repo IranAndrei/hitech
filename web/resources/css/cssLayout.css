@@ -92,7 +92,44 @@
     top: 20%;
 }
 
-#butao{
-    border-radius: 30px;
+.imagem1{
+    position: absolute;
+    left: 50%;
+    top: 350%;
 }
 
+.imagem2{
+    position: absolute;
+    right: 65%;
+    top: 790%;
+}
+
+.imagem3{
+    position: absolute;
+    right: 59%;
+    top: 790%;
+}
+
+.botao{
+    position: absolute;
+    right: 160%;
+    top: 80%;
+}
+
+.logos{
+    position: absolute;
+    left: 90%;
+    top: 25%;
+}
+
+.carrinho{
+    position: absolute;
+    left: 95%;
+    top: 20%;
+}
+.login{
+    position: absolute;
+    left: 46%;
+    top: 200px;
+    width: 250px;
+}
