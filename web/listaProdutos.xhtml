@@ -10,29 +10,30 @@
         <div class="product card">
             <h:form>
                 <p:dataScroller value="#{dataScrollerView.products}" var="product" chunkSize="10" mode="inline"
-                                scrollHeight="500">
+                                scrollHeight="700">
                     <f:facet name="header">
                         Scroll Down to Load More Products
                     </f:facet>
 
                     <div class="product">
                         <div class="product-list-item p-p-5">
-                            <p:graphicImage name="imagens/#{product.image}"/>
+                            
                             <div class="product-list-detail">
                                 <div class="product-name">#{product.name}</div>
                                 <div class="product-description">#{product.description}</div>
-                                <p:rating readonly="true" value="#{product.rating}"/>
+                                <p:rating readonly="true" value="#{product.rating}" />
                                 <i class="pi pi-tag product-category-icon"/><span
                                     class="product-category">#{product.category}</span>
                             </div>
                             <div class="product-list-action">
                                 <h:outputText value="#{product.price}" styleClass="product-price">
-                                    <f:convertNumber currencySymbol="$" type="currency"/>
+                                    <f:convertNumber currencySymbol="$" type="currency" />
                                 </h:outputText>
                                 <p:commandButton value="Add To Cart" icon="pi pi-shopping-cart"
-                                                 disabled="#{product.inventoryStatus == 'OUTOFSTOCK'}">
+                                                 disabled="#{product.inventoryStatus == 'OUTOFSTOCK'}" style="left: 90%">
                                 </p:commandButton>
-                                <span class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus.text}</span>
+                                <span class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus.text} </span>
+                                
                             </div>
                         </div>
                     </div>
