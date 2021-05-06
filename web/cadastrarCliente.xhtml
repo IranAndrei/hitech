@@ -6,34 +6,31 @@
                 xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="content">
-            <div style="position: absolute; top: 55px; right: 40%" >
-        <h:form>
-            <h1>CADASTRE-SE JÁ</h1>
-            <br/>
-            Nome completo: <p:inputText value="#{usuarioB.nome}"/>
-            <br/>
-            <br/>
-            Email: <p:inputText value="#{usuarioB.email}"/>
-            <br/>
-            <br/>
-            Crie uma senha: <p:inputText value="#{usuarioB.senha}"/>
-            <br/>
-            <br/>
-            Confirme sua senha:<p:inputText/>
-            <br/>
-            <br/>
-            CPF: <p:inputMask mask="999.999.999-99" value="#{usuarioB.cpf}" />
-            <br/>
-            <br/>
-            CEP: <p:inputMask mask="99999-999" value="#{usuarioB.cep}"/>
-            <br/>
-            <br/>
-            Administrador: <p:inputText value="#{usuarioB.administrador}"/>
-            <br/>
-            <br/>
-            <p:commandButton value="Salvar informações" action="#{usuarioB.salvarUsuario()}" />
-        </h:form>
-            </div>
+        <div style="position: absolute; top: 55px; right: 40%" >
+            <h:form>
+                <h1>CADASTRE-SE JÁ</h1>
+                <br/>
+                Nome completo: <p:inputText value="#{usuarioB.nome}"/>
+                <br/>
+                <br/>
+                Email: <p:inputText value="#{usuarioB.email}"/>
+                <br/>
+                <br/>
+                Crie uma senha: <p:password id="toggle" value="#{usuarioB.senha}"  redisplay="true" />
+                <br/>
+                <br/>
+                Confirme sua senha:<p:inputText/>
+                <br/>
+                <br/>
+                CPF: <p:inputMask mask="999.999.999-99" value="#{usuarioB.cpf}" />
+                <br/>
+                <br/>
+                CEP: <p:inputMask mask="99999-999" value="#{usuarioB.cep}"/>
+                <br/>
+                <br/>
+                <p:commandButton value="Salvar informações" action="#{usuarioB.salvarUsuario()}" />
+            </h:form>
+        </div>
     </ui:define>
 
 </ui:composition>

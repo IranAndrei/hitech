@@ -27,11 +27,11 @@ public class ProductService {
     @PostConstruct
     public void init() {
         products = new ArrayList<>();
-        products.add(new Product(1008, "vbb124btr", "Game Controller", "Product Description", "game-controller.jpg", 99, "Electronics", 2, InventoryStatus.LOWSTOCK, 4));
-        products.add(new Product(1009, "cm230f032", "Gaming Set", "Product Description", "gaming-set.jpg", 299, "Electronics", 63, InventoryStatus.INSTOCK, 3));
-        products.add(new Product(1011, "4920nnc2d", "Green Earbuds", "Product Description", "green-earbuds.jpg", 89, "Electronics", 23, InventoryStatus.INSTOCK, 4));
-        products.add(new Product(1014, "waas1x2as", "Headphones", "Product Description", "headphones.jpg", 175, "Electronics", 8, InventoryStatus.LOWSTOCK, 5));
-        products.add(new Product(1027, "acvx872gc", "Yellow Earbuds", "Product Description", "yellow-earbuds.jpg", 89, "Electronics", 35, InventoryStatus.INSTOCK, 3));
+        products.add(new Product(1008, "vbb124btr", "Controlador sem fio para Playstation 4", "Product Description", "game-controller.jpg", 569, "Electronics", 2, InventoryStatus.LOWSTOCK, 4));
+        products.add(new Product(1009, "cm230f032", "Fone de Ouvido on Ear Bluetooth, Tune 500, JBL, Preto", "Product Description", "gaming-set.jpg", 230, "Electronics", 63, InventoryStatus.INSTOCK, 3));
+        products.add(new Product(1011, "4920nnc2d", "Câmera Sony Alpha a7III Mirrorless (Corpo)", "Product Description", "green-earbuds.jpg", 12946, "Electronics", 23, InventoryStatus.INSTOCK, 4));
+        products.add(new Product(1014, "waas1x2as", "Novo Echo Dot (4ª Geração)", "Product Description", "headphones.jpg", 284, "Electronics", 8, InventoryStatus.LOWSTOCK, 5));
+        products.add(new Product(1027, "acvx872gc", "Console PlayStation 4 Mega Pack 15", "Product Description", "yellow-earbuds.jpg", 2551, "Electronics", 35, InventoryStatus.INSTOCK, 3));
     }
 
     public List<Product> getProducts() {

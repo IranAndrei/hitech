@@ -40,7 +40,6 @@ public class UsuarioB {
         u.setSenha(senha);
         u.setCpf(cpf);
         u.setCep(cep);
-        u.setAdministrador(false);
         
         usuarioDAO.save(u);
     }
