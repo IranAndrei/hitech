@@ -11,19 +11,19 @@
              <h:form>       
             <h1>CADASTRAR PRODUTOS</h1>
             <br/>
-            Código do produto: <p:inputNumber />
+            Nome: <p:inputText value="#{produtoB.nome}" />
             <br/>
             <br/>
-            Descrição do produto: <p:inputText />
+            Descrição do produto: <p:inputText value="#{produtoB.descricao}"/>
             <br/>
             <br/>
-            Preço: <p:inputNumber />
+            Preço: <p:inputNumber value="#{produtoB.preco}" />
             <br/>
             <br/>
-            Quantidade:  <p:inputText />
+            Foto: <p:inputText />
             <br/>
             <br/>
-            <p:commandButton value="Salvar produto!!" />
+            <p:commandButton value="Salvar produto!!" action="#{produtoB.salvarProduto()}" />
             </h:form>
         </div>
     </ui:define>
