@@ -7,9 +7,11 @@ package managedBean;
 
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import model.dao.UsuarioDAO;
 import model.entity.Usuario;
+import utils.Utilidade;
 
 /**
  *
@@ -21,6 +23,7 @@ public class UsuarioB {
 
     @Inject
     private UsuarioDAO usuarioDAO;
+    private Usuario usuario;
     
     private String nome;
     private String email;
@@ -29,7 +32,12 @@ public class UsuarioB {
     private String cep;
     private String administrador;
      
-    public UsuarioB() {
+    public UsuarioB() 
+    {
+        if (Utilidade.verificarExisteSessao("usuario"))
+        {
+            usuario = (Usuario) Utilidade.verificarSessao("usuario");
+        }
     }
     
     public void salvarUsuario(){
@@ -42,6 +50,37 @@ public class UsuarioB {
         u.setCep(cep);
         
         usuarioDAO.save(u);
+    }
+    
+    public String logar()
+    {
+        usuario = usuarioDAO.logar(email, senha);
+        
+        if (usuario == null)
+        {
+            return "loginAdmin";
+        }
+        
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", usuario);
+        
+        return "gerenciarPedidos?faces-redirect=true";
+    }
+    
+    public String logout()
+    {
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("usuario");
+        
+        return "index?faces-redirect=true";
+    }
+    
+    public String getPaginaLoginCliente()
+    {
+        return "loginCliente";
+    }
+    
+    public String getPaginaLoginAdmin()
+    {
+        return "loginAdmin";
     }
     
     /**
@@ -62,6 +101,20 @@ public class UsuarioB {
      */
     public String getNome() {
         return nome;
+    }
+
+     /**
+     * @return the usuario
+     */
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    /**
+     * @param usuario the usuario to set
+     */
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     /**

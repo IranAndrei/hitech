@@ -18,11 +18,14 @@
             <h:form>
                 <div class="p-text-bold" style=" font-size: 30px; color: #1CB7F1">
                     HiTech
+                    <h:outputText value="#{usuarioB.usuario.nome}" />
                 </div>
 
                 <p:breadCrumb class="menu">
                     <p:menuitem value="home"/>
-                    <p:menuitem value="Minha conta"/>
+                    <p:menuitem value="Logout" rendered="#{usuarioB.usuario != null}" action="#{usuarioB.logout()}"/>
+                    <p:menuitem value="Login" rendered="#{usuarioB.usuario == null}" action="#{usuarioB.getPaginaLoginCliente()}"/>
+                    <p:menuitem value="Admin" rendered="#{usuarioB.usuario == null}" action="#{usuarioB.getPaginaLoginAdmin()}"/>
                     <p:menuitem value="Loja"/>
                     <p:menuitem value="Sobre nós"/>
                 </p:breadCrumb>

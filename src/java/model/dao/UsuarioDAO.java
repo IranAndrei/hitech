@@ -15,4 +15,19 @@ import model.entity.Usuario;
 @Dependent
 public class UsuarioDAO extends BaseDao <Usuario> {
     
+    public Usuario logar(String email, String senha){
+        
+        try
+        {
+            return (Usuario) getEntityManager().createNamedQuery("usuario.logar")
+                .setParameter("email", email)
+                .setParameter("senha", senha)
+                .getSingleResult();
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro: "+ e.getLocalizedMessage());
+            return null;
+        }
+    }
 }
