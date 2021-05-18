@@ -5,11 +5,19 @@
  */
 package managedBean;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.ServletContext;
 import model.dao.ProdutoDAO;
 import model.entity.Produto;
+import org.primefaces.model.file.UploadedFile;
+import utils.Utilidade;
 
 /**
  *
@@ -28,10 +36,32 @@ public class ProdutoB {
     private String foto;
     private Double preco;
     
+    private UploadedFile imagem;
+    
     public ProdutoB() {
     }
     
-    public void salvarProduto() {
+    public String salvarProduto() {
+        
+        try
+        {
+            String caminho = Utilidade.getRealPath();
+            
+            File file = new File(caminho + "/resources/produtos/" + imagem.getFileName());
+            
+            OutputStream out = new FileOutputStream(file);
+            out.write(imagem.getContent());
+            out.close();
+            
+            foto = imagem.getFileName();
+        }
+        catch (Exception ex)
+        {
+             Utilidade.addMessage(FacesMessage.SEVERITY_FATAL, "Erro ao salvar a imagem", "Erro: " + ex.getLocalizedMessage());
+             
+             return "index?faces-redirect=true";
+        }
+        
         Produto p = new Produto();
 
         p.setFoto(foto);
@@ -39,7 +69,18 @@ public class ProdutoB {
         p.setDescricao(descricao);
         p.setPreco(preco);
 
-        produtoDAO.save(p);
+        p = produtoDAO.save(p);
+        
+        if (p == null)
+        {
+            Utilidade.addMessage(FacesMessage.SEVERITY_ERROR, "Erro ao salvar", "Não foi possivel salvar!");
+        }
+        else
+        {
+            Utilidade.addMessage(FacesMessage.SEVERITY_INFO, "Registrado", "O produto foi registrado com sucesso!");
+        }
+        
+        return "listaProdutos?faces-redirect=true";
     }
     
      public Integer getId() {
@@ -80,5 +121,19 @@ public class ProdutoB {
 
     public void setPreco(Double preco) {
         this.preco = preco;
+    }
+
+    /**
+     * @return the imagem
+     */
+    public UploadedFile getImagem() {
+        return imagem;
+    }
+
+    /**
+     * @param imagem the imagem to set
+     */
+    public void setImagem(UploadedFile imagem) {
+        this.imagem = imagem;
     }
 }
