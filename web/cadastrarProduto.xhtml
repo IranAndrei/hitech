@@ -8,22 +8,24 @@
     <ui:define name="content"> 
         <div style="position: absolute; right: 41%; top: 800% " >
 
-            <h:form enctype="multipart/form-data">
-                <p:growl id="mensagem" showDetail="true" />
-                <h1>CADASTRAR PRODUTOS</h1>
-                <br/>
-                Nome: <p:inputText value="#{produtoB.nome}" />
-                <br/>
-                <br/>
-                Descrição do produto: <p:inputText value="#{produtoB.descricao}"/>
-                <br/>
-                <br/>
-                Preço: <p:inputNumber value="#{produtoB.preco}" symbol="R$ " />
-                <br/>
-                <br/>
-                Foto: <p:fileUpload value="#{produtoB.imagem}" mode="simple" skinSimple="true" />
-                <br/>
-                <br/>
+            <h:form id="atualiza" enctype="multipart/form-data">
+                <p:outputPanel >
+                    <p:growl id="mensagem" showDetail="true" />
+                    <h1>CADASTRAR PRODUTOS</h1>
+                    <br/>
+                    Nome: <p:inputText value="#{produtoB.nome}" />
+                    <br/>
+                    <br/>
+                    Descrição do produto: <p:inputText value="#{produtoB.descricao}"/>
+                    <br/>
+                    <br/>
+                    Preço: <p:inputNumber value="#{produtoB.preco}" symbol="R$ " />
+                    <br/>
+                    <br/>
+                    Foto: <p:fileUpload value="#{produtoB.imagem}" mode="simple" skinSimple="true" />
+                    <br/>
+                    <br/>             
+                </p:outputPanel>
                 <p:commandButton value="Salvar produto!!" action="#{produtoB.salvarProduto()}" />
             </h:form>
         </div>

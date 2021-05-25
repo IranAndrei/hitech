@@ -11,6 +11,7 @@ import java.io.OutputStream;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import model.dao.ProdutoDAO;
 import model.entity.Produto;
@@ -56,6 +57,8 @@ public class ProdutoB {
         catch (Exception ex)
         {
              Utilidade.addMessage(FacesMessage.SEVERITY_FATAL, "Erro ao salvar a imagem", "Erro: " + ex.getLocalizedMessage());
+             
+             FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
              
              return "index?faces-redirect=true";
         }
