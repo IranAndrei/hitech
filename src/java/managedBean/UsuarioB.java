@@ -83,6 +83,20 @@ public class UsuarioB {
         return "loginAdmin";
     }
     
+    public String getPaginaInicial()
+    {
+        return "index";
+    }
+    
+    public String getPaginaListaProduto()
+    {
+        return "listaProdutos";
+    }
+    
+    public String getPaginaCadastrarCliente()
+    {
+        return "cadastrarCliente";
+    }
     /**
      * @return the administrador
      */

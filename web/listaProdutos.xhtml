@@ -13,7 +13,7 @@
 
                 <p:dataScroller value="#{dataScrollerView.products}" var="product" chunkSize="10">
                     <f:facet name="header">
-                        Scroll Down to Load More Products
+                        Escolha o produto que você deseja
                     </f:facet>
 
                     <div class="product">
@@ -30,7 +30,7 @@
                                 <h:outputText value="#{product.price}" styleClass="product-price">
                                     <f:convertNumber currencySymbol="$" type="currency"/>
                                 </h:outputText>
-                                <p:commandButton value="Add To Cart" icon="pi pi-shopping-cart"
+                                <p:commandButton value="Adicionar ao carrinho" icon="pi pi-shopping-cart"
                                                  disabled="#{product.inventoryStatus == 'OUTOFSTOCK'}">
                                 </p:commandButton>
                                 <span class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus.text}</span>
