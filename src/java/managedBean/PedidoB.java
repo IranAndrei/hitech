@@ -86,7 +86,7 @@ public class PedidoB {
         if (pedido == null)
         {
             Utilidade.addMessage(FacesMessage.SEVERITY_ERROR, "Erro ao efetuar o pedido!", "Não foi possivel efetuar o pedido, tente novamente!");
-            
+   
             return "index?faces-redirect=true";
         }
         

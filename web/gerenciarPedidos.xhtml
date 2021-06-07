@@ -10,33 +10,39 @@
 
 
         <h:form>
-
-            <div id="datagrid" style="position: absolute; top:130% ">
-                <p:dataTable var="pedido" value="#{pedidoB.todosPedidos}" >
-                    <p:column headerText="Id">
-                        <h:outputText value="#{pedido.id}" />
-                    </p:column>
-
-                    <p:column headerText="Nome">
-                        <h:outputText value="#{pedido.usuario.nome}"/>
-                    </p:column>
-
-                    <p:column headerText="Valor total">
-                        <h:outputText value="#{pedido.valorTotal}"  />
-                    </p:column>
-
-                    <p:column headerText="Produtos comprados">
-                        <p:dataList value="#{pedido.produtoPedidos}" var="produtoPedido" >
-                            <h:outputText value="#{produtoPedido.produto.descricao} - #{produtoPedido.produto.nome}"  />
-                        </p:dataList>
-                    </p:column>
-                </p:dataTable>
+            <p:dataScroller value="#{dataScrollerView.products}" var="product" chunkSize="10" mode="inline"
+                            scrollHeight="500">
                 
-                <div>
-                    <p:commandButton value="Cadastrar produto" action="#{usuarioB.getCadastrarProduto()}" style="position: absolute;left: 90%; top: 100%"/>
-                </div>
-            </div>
+                <f:facet name="header">
+                    Confira os seus produtos!
+                </f:facet>
+                
+                
+                    <p:dataTable var="pedido" value="#{pedidoB.todosPedidos}" >
+                        <p:column headerText="Id">
+                            <h:outputText value="#{pedido.id}" />
+                        </p:column>
 
+                        <p:column headerText="Nome">
+                            <h:outputText value="#{pedido.usuario.nome}"/>
+                        </p:column>
+
+                        <p:column headerText="Valor total">
+                            <h:outputText value="#{pedido.valorTotal}"  />
+                        </p:column>
+
+                        <p:column headerText="Produtos comprados">
+                            <p:dataList value="#{pedido.produtoPedidos}" var="produtoPedido" >
+                                <h:outputText value="#{produtoPedido.produto.descricao} - #{produtoPedido.produto.nome}"  />
+                            </p:dataList>
+                        </p:column>
+                    </p:dataTable>
+               
+            </p:dataScroller>
+            
+            <div>
+                <p:commandButton value="Cadastrar produto" action="#{usuarioB.getCadastrarProduto()}" style="position: absolute;left: 90%; top: 100%"/>
+            </div>
         </h:form>
 
     </ui:define>

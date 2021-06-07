@@ -17,6 +17,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import model.dao.ProdutoDAO;
 import model.entity.Produto;
+import static org.primefaces.component.focus.FocusBase.PropertyKeys.context;
 import org.primefaces.model.file.UploadedFile;
 import utils.Utilidade;
 
@@ -59,9 +60,9 @@ public class ProdutoB {
     {
         getCarrinho().add(p);
         Utilidade.addMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "O produto foi adicionado ao carrinho");
-        
+   
         Utilidade.salvaRegistroSessao("carrinho", getCarrinho());
-        
+              
         return "carinhoCompra?faces-redirect=true";
     }
     
