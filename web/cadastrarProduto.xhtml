@@ -8,9 +8,9 @@
     <ui:define name="content"> 
         <div style="position: absolute; right: 41%; top: 800% " >
 
-            <h:form id="atualiza" enctype="multipart/form-data">
-                <p:outputPanel >
-                    <p:growl id="mensagem" showDetail="true" />
+            <h:form enctype="multipart/form-data">
+                <p:growl id="mensagem" showDetail="true" />
+                <p:outputPanel >       
                     <h1>CADASTRAR PRODUTOS</h1>
                     <br/>
                     Nome: <p:inputText value="#{produtoB.nome}" />
@@ -26,7 +26,7 @@
                     <br/>
                     <br/>             
                 </p:outputPanel>
-                <p:commandButton value="Salvar produto!!" action="#{produtoB.salvarProduto()}" />
+                <p:commandButton  value="Salvar produto!!" action="#{produtoB.salvarProduto()}" />
             </h:form>
         </div>
     </ui:define>

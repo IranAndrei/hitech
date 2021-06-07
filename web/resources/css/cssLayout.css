@@ -8,12 +8,25 @@
     
 }
 
+body {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    min-height: 100%;
+}
+
 #bottom {
     position: absolute;
     background-color: #6B6B6B;
     bottom: 0;
     width: 100%;
+    height: 100px;  
     padding: 50px;
+    text-align: center;
+    line-height: 100px;
+    
 }
 
 #left {
@@ -34,6 +47,7 @@
     position: relative;
     background-color: white;
     padding: 5px;
+    
 }
 
 .left_content {
@@ -140,3 +154,4 @@
     top: 200px;
     width: 250px;
 }
+

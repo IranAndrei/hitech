@@ -15,20 +15,21 @@
                 <div class="ui-fluid p-formgrid p-grid">
                     <div class="p-field p-col-12 p-md-12">
                         <p:outputLabel  value="Nome:" style="font-size: 25px" />
-                        <p:outputLabel  value="#{consultaMB.usuario.nome}"/>
-                        <p:inputText />
+                        <p:outputLabel />
+                        <p:inputText value="#{usuarioB.nome}" />
                     </div>
                     
                     <br/>
                     
                     <div class="p-field p-col-12 p-md-12">
                         <p:outputLabel value="Senha:" style="font-size: 25px"/>
-                        <p:password id="toggle" value="#{consultaMB.usuario.senha}" redisplay="true"/>
+                        <p:password value="#{usuarioB.senha}" />
                     </div>
+                    
+                    <p:commandButton  class="botao" value="Entrar" action="#{usuarioB.logarCliente()}" styleClass="rounded-button" style="position: relative;top: 20px" />
                 </div>
             </div>
 
-            <p:commandButton  class="botao" value="Entrar" action="#{usuarioB.getPaginaCadastrarCliente()}" styleClass="rounded-button" style="position: absolute;top: 420px;left: 49%; width: 120px; height: 50px;"/>
         </h:form>
     </ui:define>
 

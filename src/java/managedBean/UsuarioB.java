@@ -15,7 +15,7 @@ import utils.Utilidade;
 
 /**
  *
- * @author Lucas
+ * @author Lucas Queiroz Rocha dos Reis 
  */
 @Named(value = "usuarioB")
 @RequestScoped
@@ -40,6 +40,10 @@ public class UsuarioB {
         }
     }
     
+    /**
+    *
+    * @author Lucas Queiroz Rocha dos Reis 
+    */
     public void salvarUsuario(){
         Usuario u = new Usuario();
         
@@ -51,6 +55,8 @@ public class UsuarioB {
         
         usuarioDAO.save(u);
     }
+    
+    
     
     public String logar()
     {
@@ -66,6 +72,21 @@ public class UsuarioB {
         return "gerenciarPedidos?faces-redirect=true";
     }
     
+    
+    public String logarCliente()
+    {
+        usuario = usuarioDAO.logarCliente(nome, senha);
+        
+        if (usuario == null)
+        {
+            return "loginCliente";
+        }
+        
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", usuario);
+        
+        return "listaProdutos?faces-redirect=true";
+    }
+    
     public String logout()
     {
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("usuario");
@@ -76,6 +97,11 @@ public class UsuarioB {
     public String getPaginaLoginCliente()
     {
         return "loginCliente";
+    }
+    
+    public String getCadastrarProduto()
+    {
+        return "cadastrarProduto";
     }
     
     public String getPaginaLoginAdmin()
@@ -93,10 +119,16 @@ public class UsuarioB {
         return "listaProdutos";
     }
     
-    public String getPaginaCadastrarCliente()
+    public String getPaginaRegistro()
     {
         return "cadastrarCliente";
     }
+    
+    public String getPaginaCarrinho()
+    {
+        return "carinhoCompra";
+    }
+    
     /**
      * @return the administrador
      */

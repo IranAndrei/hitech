@@ -8,17 +8,34 @@
 
     <ui:define name="content">
         <div class="product card">
-            <h:form>
+            <h:form id="atualiza">
+                <p:growl id="growl" showDetail="true"/>
+                
                 <p:dataScroller value="#{dataScrollerView.products}" var="product" chunkSize="10" mode="inline"
                                 scrollHeight="500">
                     <f:facet name="header">
-                        Scroll Down to Load More Products
+                        Confira os seus produtos!
                     </f:facet>
                 
+                    <p:dataTable value="#{produtoB.carrinho}" var="produto">
+                        
+                        <p:column headerText="Nome" >
+                            <h:outputText value="#{produto.nome}" />
+                        </p:column>
+                        
+                        <p:column headerText="Descrição" >
+                            <h:outputText value="#{produto.descricao}" />
+                        </p:column>
+                        
+                        <p:column headerText="Preço" >
+                            <h:outputText value="R$#{produto.preco}" />
+                        </p:column>
+                        
+                    </p:dataTable>
                 </p:dataScroller>
                 
                 <div>
-                    <p:commandButton value="Comprar" style="position: absolute;left: 90%; top: 100%"/>
+                    <p:commandButton update="growl" value="Comprar" action="#{pedidoB.efetuarCompra()}" style="position: absolute;left: 90%; top: 100%"/>
                 </div>
                 
             </h:form>

@@ -8,6 +8,8 @@ package managedBean;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -26,6 +28,8 @@ import utils.Utilidade;
 @RequestScoped
 public class ProdutoB {
 
+    private List<Produto> carrinho;
+    
     @Inject
     private ProdutoDAO produtoDAO;
     
@@ -38,6 +42,27 @@ public class ProdutoB {
     private UploadedFile imagem;
     
     public ProdutoB() {
+        carrinho = new ArrayList<>();
+        
+        if (Utilidade.verificaExisteRegistroSessao("carrinho"))
+        {
+            carrinho = (List<Produto>) Utilidade.recuperaRegistroSessao("carrinho");
+        }
+    }
+    
+    public List<Produto> getTodosProdutos()
+    {
+        return produtoDAO.getAllResults("produto.findAll");
+    }
+    
+    public String adicionarCarrinho(Produto p)
+    {
+        getCarrinho().add(p);
+        Utilidade.addMessage(FacesMessage.SEVERITY_INFO, "Sucesso!", "O produto foi adicionado ao carrinho");
+        
+        Utilidade.salvaRegistroSessao("carrinho", getCarrinho());
+        
+        return "carinhoCompra?faces-redirect=true";
     }
     
     public String salvarProduto() {
@@ -136,5 +161,19 @@ public class ProdutoB {
      */
     public void setImagem(UploadedFile imagem) {
         this.imagem = imagem;
+    }
+
+    /**
+     * @return the carrinho
+     */
+    public List<Produto> getCarrinho() {
+        return carrinho;
+    }
+
+    /**
+     * @param carrinho the carrinho to set
+     */
+    public void setCarrinho(List<Produto> carrinho) {
+        this.carrinho = carrinho;
     }
 }

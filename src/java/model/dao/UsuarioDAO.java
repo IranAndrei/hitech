@@ -30,4 +30,20 @@ public class UsuarioDAO extends BaseDao <Usuario> {
             return null;
         }
     }
+    
+    public Usuario logarCliente(String nome, String senha){
+        
+        try
+        {
+            return (Usuario) getEntityManager().createNamedQuery("usuario.logarCliente")
+                .setParameter("nome", nome)
+                .setParameter("senha", senha)
+                .getSingleResult();
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro: "+ e.getLocalizedMessage());
+            return null;
+        }
+    }
 }

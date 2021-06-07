@@ -37,8 +37,36 @@ public class HitechFilter implements Filter {
             }
         }
         
+        if (httpRequest.getRequestURI().contains("listaProdutos"))
+        {           
+            
+            if (httpSession.getAttribute("usuario") == null)
+            {
+                httpResponse.sendRedirect(httpRequest.getContextPath() + "/index.jsf");
+            }
+        }
+        
+        if (httpRequest.getRequestURI().contains("carinhoCompra"))
+        {           
+            
+            if (httpSession.getAttribute("usuario") == null)
+            {
+                httpResponse.sendRedirect(httpRequest.getContextPath() + "/index.jsf");
+            }
+        }
+        
+        if (httpRequest.getRequestURI().contains("cadastrarProduto"))
+        {           
+            
+            if (httpSession.getAttribute("usuario") == null)
+            {
+                httpResponse.sendRedirect(httpRequest.getContextPath() + "/index.jsf");
+            }
+        }
+        
         chain.doFilter(request, response);
     }    
+    
     
     
 }

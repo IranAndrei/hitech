@@ -14,22 +14,27 @@
 
     <h:body>
 
-        <div id="top">
-            <h:form>
+        <div id="top">          
+            <h:form>    
+                <p:growl id="mensagem" showDetail="true" />
                 <div class="p-text-bold" style=" font-size: 30px; color: #1CB7F1">
                     HiTech
                     <h:outputText value="#{usuarioB.usuario.nome}" />
                 </div>
 
-                <p:breadCrumb class="menu">
-                    <p:menuitem value="home" rendered="#{usuarioB.usuario == null}" action="#{usuarioB.getPaginaInicial()}"/>
+                <p:breadCrumb class="menu" >
+                    <p:menuitem value="home" action="#{usuarioB.getPaginaInicial()}"/>
                     <p:menuitem value="Logout" rendered="#{usuarioB.usuario != null}" action="#{usuarioB.logout()}"/>
                     <p:menuitem value="Login" rendered="#{usuarioB.usuario == null}" action="#{usuarioB.getPaginaLoginCliente()}"/>
                     <p:menuitem value="Admin" rendered="#{usuarioB.usuario == null}" action="#{usuarioB.getPaginaLoginAdmin()}"/>
-                    <p:menuitem value="Loja" rendered="#{usuarioB.usuario == null}" action="#{usuarioB.getPaginaListaProduto()}"/>
+                    <p:menuitem value="Registrar-se" rendered="#{usuarioB.usuario == null}" action="#{usuarioB.getPaginaRegistro()}"/>
+                    <p:menuitem value="Loja" rendered="#{usuarioB.usuario != null}" action="#{usuarioB.getPaginaListaProduto()}"/>
                 </p:breadCrumb>
-                
-                <p:graphicImage class="carrinho" name="imagens/carrinhoLogo (2).png"  style="height: 50px; width: 50px" /> 
+                    
+                <h:commandLink action="#{usuarioB.getPaginaCarrinho()}">
+                    <h:graphicImage name="imagens/carrinhoLogo (2).png" class="carrinho" style="height: 50px; width: 50px" />		
+                </h:commandLink>
+                                                      
             </h:form>
         </div>
 

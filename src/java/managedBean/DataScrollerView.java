@@ -28,7 +28,7 @@ public class DataScrollerView implements Serializable {
 
     @PostConstruct
     public void init() {
-        products = service.getProducts(20);
+        products = service.getProducts(1);
     }
 
     public List<Product> getProducts() {

@@ -11,35 +11,23 @@
             <h:form enctype="multipart/form-data">
                 <p:growl id="mensagem" showDetail="true" />
 
-                <p:dataScroller value="#{dataScrollerView.products}" var="product" chunkSize="10">
+                <p:dataScroller value="#{dataScrollerView.products}" var="product" chunkSize="10" mode="inline" scrollHeight="550">
                     <f:facet name="header">
                         Escolha o produto que você deseja
                     </f:facet>
                     
-                    <!-- <div class="product">
-                        <div class="product-list-item p-p-5">
-                            <p:graphicImage name="demo/images/product/#{product.image}"/>
-                            <div class="product-list-detail">
-                                <div class="product-name">#{product.name}</div>
-                                <div class="product-description">#{product.description}</div>
-                                <p:rating readonly="true" value="#{product.rating}"/>
-                                <i class="pi pi-tag product-category-icon"/><span
-                                    class="product-category">#{product.category}</span>
-                            </div>
-                            <div class="product-list-action">
-                                <h:outputText value="#{product.price}" styleClass="product-price">
-                                    <f:convertNumber currencySymbol="$" type="currency"/>
-                                </h:outputText>
-                                <p:commandButton value="Adicionar ao carrinho" icon="pi pi-shopping-cart"
-                                                 disabled="#{product.inventoryStatus == 'OUTOFSTOCK'}">
-                                </p:commandButton>
-                                <span class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus.text}</span>
-                            </div>
+                    <ui:repeat  value="#{produtoB.todosProdutos}" var="produto">
+                    
+                        <div>
+                            <p:graphicImage id="gab" name="produtos/#{produto.foto}" width="300px" height="150px" />
+                            <p:overlayPanel for ="@previous" style="width: 400px" >
+                                <p><h:outputText value="#{produto.descricao}" /></p>
+                                <p><h:outputText value="R$#{produto.preco}" /></p>
+                            </p:overlayPanel>
+                            <h:commandButton class="botao" value="Add ao carrinho!" action="#{produtoB.adicionarCarrinho(produto)}" styleClass="rounded-button" style="position: relative;left: 78%"/>
                         </div>
-                    </div> -->
-                    
-                    
-                    
+                        
+                    </ui:repeat>
                 </p:dataScroller>
 
 
